@@ -2,10 +2,23 @@ body {
   background-color: rgba(255, 255, 142, 0.775);
   font-family: Arial;
   font-size: 30px;
+  padding: 50px;
 }
 h1 {
   font-size: 50px;
+  padding-bottom: 25px;
+}
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
 }
 .first {
   color: red;
+}
+#your-name {
+  background-color: rgb(207, 207, 189);
+  border: 5px solid #444;
+  width: 400px;
+  padding: 25px;
+  margin-top: 30px;
 }
