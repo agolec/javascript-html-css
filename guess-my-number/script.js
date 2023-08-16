@@ -4,9 +4,6 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0; 
 
-console.log(secretNumber);
-console.log('high score set at start: ' + highScore);
-console.log('type of: ' + typeof highScore);
 //Use the querySelector method to make an event listener on the
 //check guess button.
 document.querySelector('.check').addEventListener('click', function(){
@@ -23,7 +20,6 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('.message').textContent = '⚖Correct number!';
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
-
         document.querySelector('.number').textContent = secretNumber;
         document.querySelector('.score').textContent = score;
        
