@@ -28,10 +28,9 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.highscore').textContent = highScore;
         }
     } 
-    //User guess is too high
-    else if (guess > secretNumber) {
+    else if(guess != secretNumber){
         if(score > 1){
-            document.querySelector('.message').textContent = '📈Guess too high.';
+            document.querySelector('.message').textContent = guess > secretNumber ? '📈Guess too high.' : '💥Guess too low.';
             score--;
             document.querySelector('.score').textContent = score;
         }
@@ -39,33 +38,14 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
             document.querySelector('.message').textContent = '💥You lost the game';
         }
-        
-    //User guess is too low.
-    } else if (guess < secretNumber){
-        if(score > 1){
-            document.querySelector('.message').textContent = '📉Guess too low.'
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.score').textContent = 0;
-            document.querySelector('.message').textContent = '💥You lost the game';
-        }
-        
-    } 
+    }
 })
 
 //create event listener on the again button.
 document.querySelector('.again').addEventListener('click',function(){
-    //user must reset the page back to how it is at the start of the game.
-    //Generate a new random number.
-    //guess text box must not have text.
-    //Guess too low/high text reset.
-    //Score label reset.
-    //High Schore label reset.
-
     secretNumber = Math.trunc(Math.random() * 20) + 1;
-
     score = 20;
+
     document.querySelector('.number').textContent = '?';
     document.querySelector('.number').style.width = '15rem';
    
