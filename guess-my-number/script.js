@@ -1,10 +1,11 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1
+let secretNumber = Math.trunc(Math.random() * 20) + 1
 let score = 20
-//document.querySelector('.number').textContent = secretNumber;
+
 console.log(secretNumber);
-//Use the querySelector method to specify
+//Use the querySelector method to make an event listener on the
+//check guess button.
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
 
@@ -17,10 +18,9 @@ document.querySelector('.check').addEventListener('click', function(){
         score--
         document.querySelector('.message').textContent = '⚖Correct number!';
         document.querySelector('body').style.backgroundColor = '#60b347';
-
         document.querySelector('.number').style.width = '30rem';
-        document.querySelector('.number').textContent = secretNumber;
 
+        document.querySelector('.number').textContent = secretNumber;
     } 
     //User guess is too high
     else if (guess > secretNumber) {
@@ -46,4 +46,26 @@ document.querySelector('.check').addEventListener('click', function(){
         }
         
     } 
+})
+
+//create event listener on the again button.
+document.querySelector('.again').addEventListener('click',function(){
+    //user must reset the page back to how it is at the start of the game.
+    //Generate a new random number.
+    //guess text box must not have text.
+    //Guess too low/high text reset.
+    //Score label reset.
+    //High Schore label reset.
+    
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+    score = 20;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.number').style.width = '15rem';
+   
+    document.querySelector('.guess').value = '';
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('body').style.backgroundColor = '#222';
+    
+    document.querySelector('.score').textContent = score;
 })
