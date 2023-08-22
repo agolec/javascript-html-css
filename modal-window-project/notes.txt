@@ -1,0 +1,9 @@
+Handling 'esc' keypress event.
+
+Keyboard events are GLOBAL events since they do not happen on elements.
+
+We query from the document for it.
+
+ex:
+
+document.addEventListener
