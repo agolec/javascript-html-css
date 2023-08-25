@@ -106,8 +106,18 @@ btnHold.addEventListener('click', function(){
     
 });
 
-//TODO - create new game button functionality.
+/*
+new game button functionality. Resets the game's styles and game state.
 
+if game was won, the playing variable is reset to true.
+
+current score = 0;
+both plater's total scores are reset to 0.
+
+player 1 is made the active player.
+
+The dice graphic is hidden again.
+*/
 btnNew.addEventListener('click',function(){
     if(playing === false){
         playing = true;
