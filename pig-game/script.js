@@ -14,7 +14,7 @@ we can use .getElementById('');
 
 */
 
-const WINNING_VALUE = 10;
+const WINNING_VALUE = 20;
 
 const player0Element = document.querySelector('.player--0');
 const player1Element = document.querySelector('.player--1');
@@ -29,17 +29,28 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-/* We do not use the # symbol when we use .getElementById */ 
+let scores, currentScore, activePlayer, playing;
 
-//Setting starting conditions.
-score0Element.textContent = 0;
-score1Element.textContent = 0;
-diceElement.classList.add('hidden');
 
-const scores = [0,0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+
+const init = function(){
+    scores = [0,0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
+    
+    score0Element.textContent = 0;
+    score1Element.textContent = 0;
+    current0Element.textContent = 0;
+    current1Element.textContent = 0;
+    
+    diceElement.classList.add('hidden');
+    player0Element.classList.remove('player--winner');
+    player1Element.classList.remove('player--winner');
+    player0Element.classList.add('player--active');
+    player1Element.classList.remove('player--active');
+};
+init();
 
 const changePlayer = function(){
     document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -48,6 +59,8 @@ const changePlayer = function(){
     player0Element.classList.toggle('player--active');
     player1Element.classList.toggle('player--active');
 }
+
+
 
 //Rolling Dice functionality.
 btnRoll.addEventListener('click', function(){
@@ -119,27 +132,8 @@ player 1 is made the active player.
 The dice graphic is hidden again.
 */
 btnNew.addEventListener('click',function(){
-    if(playing === false){
-        playing = true;
-    }
-    diceElement.classList.add('hidden');
-
-    currentScore = 0;
     
-    document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
-    activePlayer = 0;
-
-    player0Element.classList.add('player--active');
-    player1Element.classList.remove('player--active');
-
-    current0Element.textContent = 0;
-    current1Element.textContent = 0;
-
-    score0Element.textContent = 0;
-    score1Element.textContent = 0;
-    for(let i = 0; i < scores.length; i++){
-        scores[i] = 0;
-    }
+    init();
 
 })
 
