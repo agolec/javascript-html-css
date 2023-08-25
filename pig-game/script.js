@@ -108,4 +108,29 @@ btnHold.addEventListener('click', function(){
 
 //TODO - create new game button functionality.
 
+btnNew.addEventListener('click',function(){
+    if(playing === false){
+        playing = true;
+    }
+    diceElement.classList.add('hidden');
+
+    currentScore = 0;
+    
+    document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
+    activePlayer = 0;
+
+    player0Element.classList.add('player--active');
+    player1Element.classList.remove('player--active');
+
+    current0Element.textContent = 0;
+    current1Element.textContent = 0;
+
+    score0Element.textContent = 0;
+    score1Element.textContent = 0;
+    for(let i = 0; i < scores.length; i++){
+        scores[i] = 0;
+    }
+
+})
+
 
