@@ -1,0 +1,55 @@
+Javascript defined
+
+Javascript is a high level prototype-based, object-oriented, 
+multi-paradigm, interpreted or just-in-time compiled, dynamic, 
+single-threaded, garbage-collected programming language with
+first class functions a non-blocking event loop concurrency model.
+
+High Level -: Every computer program needs memory and the CPU to do it's work.
+
+There are low level languages like C or C++ where you have to manually allocate these things.
+
+High level languages like Javascript do not have the developer use these. The downside is that the programs won't be as optimised as a low level one.
+
+Garbage Collection -: Whenever your memory is no longer used in your code, it gets cleaned up and that memory removed so it can be allocated elsewhere later.
+
+Interpreted or just-in-time compiled -: Every language takes human readable code and compiles it or interprets it into machine language. This is done because computers only understand 0s and 1s.
+
+Multi-paradigm -: This is an approach and mindset of structuring code. Each language has it's own way of writing it's code. Javascript allows us to do procedural coding, functional programming, and Object Oriented programming.
+
+    PAradigms are imparative or declarative.
+
+    JS does all of these.
+
+Prototype based Object Oriented -: Everything in Javascript is an object except for primarive types like numbers and booleans and strings, etc. Ex: Arrays are objects.
+
+    Arrays have prototypes that we get access to any time we declare an array in our code.
+
+First Class Functions -: We will cover this in the section 'A closer look at functions'. 
+
+    In a language with first-class functions, functions end up treated as variables. We can pass them in to other functions and return them from functions.
+
+Dynamic -:
+
+    In raw Javascript, types become known at runtime. There are no datatype definitions. We can also change them around.
+
+    let x = 23; <---- at runtime, Javascript knows this is a number type.
+    let y = 19;
+    x = "Jonas"; <-------Datatype is automatically changed when we make statements like this.
+
+Single Threaded  & Non-blocking event loop:
+
+    Concurrency Model: how Javascript's engine handles multiple tasks at one time. -----⅂
+                                                                                        |
+    Why do we need this?   <------------------------------------------------------------⅃
+                |
+                V
+    Because Javascript runs one single thread, so it can only do one thing at a time.
+
+    Sounds like this would block the single thread, however, we want non-blocking behavior. --------⅂
+                                                                                                    |
+    How do we achieve that? <-----------------------------------------------------------------------⅃
+        |  
+        v
+    By using an event loop: The event loop takes long running tasks, executes them in the background, and places them back
+    in the main thread once they are finished.

@@ -1,0 +1,35 @@
+            The computer's CPU only knows about 0s and 1s.
+
+    The source code of our program must be converted into machine code.
+
+    This conversion can be done with either Compilation, or Interpretation.
+
+
+    Compilation Steps:
+    
+        Source Code ----- Step 1 (Compilation) ------> Portable File: Machine Code ---- Step 2: Execution ------> Program Running
+
+        With compilation, code is compiled all in one shot into machine code (usually a binary file) that can be executed by the computer.
+
+        The execution can happen at any time in the future.
+
+    Interpretation Steps:
+
+        Source Code ------- Step 1: Execute the code line by line ------> Program Running
+
+        With Interpretation, the interpreter runs through the source code and executes it line by line live.
+
+
+    JS used to be a purely interpreted language. Now in the current era, low performance isn't acceptable, so Javascript does just-in-time compilation, 
+    along with interpretation.
+
+    It compiles what is necessary bare minimum to begin executing code, and from then on it inteprets.
+
+
+        Source Code ---- Step 1: Compilation ----> Machine Code ------ Step 2: Execution ------> Program Running
+                                                        ^                   ^
+                                                        |                   |
+                                                        |                   |
+                   Not a portable file! ________________|                   |______ Happens Immediately
+
+

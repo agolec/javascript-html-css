@@ -1,0 +1,21 @@
+    What is the Javascript engine?
+
+    The program that executes the Javascript code.
+
+    Google's V8 engine powers chrome, and NodeJS.*
+    
+    
+    *NodeJS allows us to make server side applications with Javascript, outside any browser.
+
+    Refer to internet postings for more info on V8 Engine workings: https://cabulous.medium.com/how-v8-javascript-engine-works-5393832d80a7
+
+
+Components of the engine
+
+ 1.1 Call Stack
+
+1.2 Heap
+
+The call stack contains information on where out code is executed, and the execution context.
+
+The heap contains all our objects in memory, and where those objects are stored.
