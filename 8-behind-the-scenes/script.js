@@ -6,13 +6,27 @@ function calcAge(birthYear){
     
     const printAge = function printAge(){
         const output = `${firstName}, you are ${age}, born in ${birthYear}`
+        //the const str scope is only inside of this if conditional. We cannot log to the console outside of it.
+        if(birthYear >= 1981 && birthYear <= 1996){
+            const str = `Oh, and you are a millennial, ${firstName}`;
+            var millennial = true;
+            console.log(str);
+
+            function add(a,b){
+                return a + b;
+            }
+            
+        }
         console.log(output);
+        console.log(millennial);
+        // console.log(add(3,4));
+       
     }
     printAge();
 }
 
 const firstName = 'Dwight D. Shultz';
-calcAge(1947);
+calcAge(1995);
 
     //This JS engine is trying to find the age variable inside the function 'printAge'.
     //Since it cannot find it here (it cannot find it as we are not providing it as an argument to the function call to printAge(),
