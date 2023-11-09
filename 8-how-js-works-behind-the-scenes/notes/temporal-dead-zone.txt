@@ -1,0 +1,45 @@
+The temporal dead zone is the area in a block of code where your variable is inaccessable
+due to not being declared yet.
+
+
+If we have the following code snippet:
+
+const myName = 'Jonas';
+
+if(myName === 'Jonas'){_____________________
+    console.log(`Jonas is a ${job}.`);      \               ________________________________
+    const age = 2037 - 1989;                 \______       |  Temporal deadzone for the     |
+    console.log(age);________________________/             |  variable 'job' on line 12,    |
+    const job = 'teacher';                                 |  is between lines 9 and 11.    |
+    console.log(x);                                        |________________________________|
+}
+
+The temporal dead zone is the region where the variable is defined, but not declared. Since we learned in hoisting that the let and const variables are NOT hoisted, we can encounter the TDZ.
+
+It's the region of the scope where somebody has defined the variable to try and access it, but it hasn't been declared yet, so that variable does not exist as far as the code is concerned.
+
+    This gives us a error message: "ReferenceError: Cannot access 'job' before initialization."
+
+    This tells us that the code detected that the job variable has been declared, because there is code where it has been defined, but is being referenced before it has been declared.
+
+If we try to access a variable that has never been declared anywhere in our code, we get a different error.
+
+    In the code above, we try to do console.log(x), but x has not been declared anywhere. The error we get is: "ReferenceError: x is not defined."
+
+
+Why TDZ?
+
+It makes it easier to avoid and catch errors. Accessing variables before they are declared is bad practice. Because our variable will be set to undefined, and using a variable that is set to undefined can cause bugs.
+
+This also makes const variables work how they're intended to work, since const variables are not meant to change value once they're declared.
+
+
+If hoisting causes problems, why does it exist?
+
+Answer: the creator of JS allowed hoisting to be possible so that we can use function before it's declaration, which some coding styles would need. Ex: Mutual recursion.
+
+This also works for var declarations because that was the only way hoisting could still work in the early days of JS.
+
+Now it still continues to use this way for backwards compatibility so legacy sites don't break.
+
+Also Javascript was not meant to be the big language it is today.
