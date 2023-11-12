@@ -1,0 +1,27 @@
+primatives vs objects
+
+
+Primative types are stored in the call stack, while objects are stored on the heap.
+
+The call stack is where execution contexts are stored.
+
+in the example in directory primatives-vs-objects, in our example with the age variable,
+what we are doing when we say 'let age = 30', is that the identifier 'age' points to a memory address that contains the value 30. It does not point to the value of 30, but the memory address pointing to the value of 30.
+
+Then we say let oldAge = age. Both the variable age, and oldAge point to the same memory address.
+
+When we say oldAge = age, we have two number variables pointing to the same memory address containing the same value, 30.
+
+identifier              Memory Address              value   
+    age ---------->     0001                        30                  
+                        ^
+                       / 
+    oldAge ___________/  (pointing to the same memory address when we type 'let oldAge = age;')
+
+    When we then change the value of age, with age = 31, we are pointing the age identifier to a new memory address with a new value.                        
+
+     age ______________ 0001                        30                  
+                       \^
+                       /\
+    oldAge ___________/  v
+                        0002                        31
