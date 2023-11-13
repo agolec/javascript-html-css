@@ -1,0 +1,31 @@
+The this keyword/variable is a special keyword created for every execution context (every function).
+It takes on the value of (points to) the "owner" of the function in which the this keyword is used.
+
+'this' is not static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+Four ways to call functions:
+
+1. methods ----> this = the object that is calling the method.
+
+
+            ex:
+
+            const jonas = {
+                name: 'Jonas',
+                year: 1989,
+                calcAge: function () {
+                    return 2037 - this.year;
+                }
+            };
+            jonas.calcAge(); // 48
+
+            In the above, when we use this.year on line 17, 'this' refers to the const 'jonas', so this equals 1989.
+
+2. simple function calls -> this = undefined. (only works in strict mode. Otherwise, this = the window object)
+
+3. Arrow Functions -> this = < this of surrounding function (lexical this)>
+
+4. Event Listener - this = <DOM element that handler is attached to>
+
+
+This does NOT point to the function itself, and also NOT the its variable environment.

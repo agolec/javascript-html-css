@@ -1,0 +1,136 @@
+say we have a regular function called
+
+const jonas = {
+    firstName: 'Jonas',
+    year: 1991,
+    calcAge: function () {
+        console.log(this);
+        console.log(2037 - year);
+    },
+    greet: () => console.log(`Hey ${this.firstName}`),
+};
+jonas.greet();
+
+this will output 'Hey undefined', since greet is implemented with an arrow function, and arrow functions do not get their own 'this' keyword. the 'this' that will end up called, belongs to the global-scoped window object, which does not have a firstName on it. 
+
+if we were to add a firstName variable to the window object, then we would return this.firstName.
+
+var firstName = 'Matilda';
+
+const jonas = {
+    firstName: 'Jonas',
+    year: 1991,
+    calcAge: function () {
+        console.log(this);
+        console.log(2037 - year);
+    },
+    greet: () => console.log(`Hey ${this.firstName}`),
+};
+jonas.greet();
+
+                    Explaination: 
+
+On line 18 we use var to assign a firstName variable the value of 'Matilda'. The var keyword adds new properties to the global object since we don't specify anything else- so it gets attached to the window object as an additional property. 
+
+It will not matter that we made an object called 'jonas' and are calling it, since the this keyword does not bind on arrow functions, and arrow functions do not get their own 'this'.
+
+takeaway: never use an arrow function as a method in an object.
+
+What to do instead: create a function expression for what you intend to use. We can re-write the greet function as a function expression:
+
+greet: function () {
+    console.log(this);
+    console.log(`Hey ${this.firstName}.`)
+}
+================================================================================================
+                Pitfalls of the this keyword:
+
+when we have a function inside a method.
+
+    Ex:
+
+    const jonas = {
+    firstName: 'Jonas',
+    year: 1991,
+    calcAge: function () {
+        console.log(this);
+        console.log(2037 - year);
+
+        const isMillenial = function() {
+            console.log(this.year >= 1981 && this.year <= 1996);
+        };
+        isMillenial();
+    },
+
+    greet: function () {
+        console.log(this);
+        console.log(`Hey ${this.firstName}.`)
+    },
+};
+
+jonas.greet();
+jonas.calcAge();
+
+                We will get a TypeError:
+
+Uncaught TypeError: Cannot read     script:js:58
+property 'year' of undefined'
+    at isMillenial (script.js:58)
+    at Object.calcAge (script.js:60)
+    at script.js:70
+
+
+                    Explaination:
+
+isMillenial is a function call within a method of an object.
+
+Inside a regular function call, 'this' is undefined.
+
+                    Possible Solution:
+
+make a variable called self, and set self equal to this. Perform this operation outside of the isMillenial function. In the code below, we do this on line 98.
+
+const jonas = {
+    firstName: 'Jonas',
+    year: 1991,
+    calcAge: function () {
+        console.log(this);
+        console.log(2037 - year);
+
+        const self = this;
+        const isMillenial = function() {
+            console.log(self.year >= 1981 && self.year <= 1996);
+        };
+        isMillenial();
+    },
+
+    greet: function () {
+        console.log(this);
+        console.log(`Hey ${this.firstName}.`)
+    },
+};
+
+This solution works in pre ES6. The current solution is to use an arrow function:
+
+
+const jonas = {
+
+    firstName: 'Jonas',
+    year: 1991,
+    calcAge: function () {
+        console.log(this);
+        console.log(2037 - year);
+
+        const isMillenial =() => {
+            console.log(this);
+            console.log(this.year >= 1981 && this.year <= 1996);
+        };
+        isMillenial();
+    },
+     greet: function () {
+        console.log(this);
+        console.log(`Hey ${this.firstName}.`)
+    },
+};
+
+this works because the arrow functions use the this keyword from the parent scope, which is the calcAge method. The this keyword belonging to the calcAge method is the jonas constant.
