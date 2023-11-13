@@ -134,6 +134,3 @@ const jonas = {
 };
 
 this works because the arrow functions use the this keyword from the parent scope, which is the calcAge method. The this keyword belonging to the calcAge method is the jonas constant.
-
-
-
