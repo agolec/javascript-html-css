@@ -1,0 +1,43 @@
+array descructuring is something we're given in ES6 as a feature.
+
+It's a way of unpacking values from an array into separate variables.
+
+For arrays, we use destructuring to retrieve elements from an array and store them into variables.
+
+Rather than doing the below...
+    const arr = [2,3,4];
+    const a = arr[0];
+    const b = arr[1];
+    const c = arr[3];
+
+we can type this instead:
+
+the const [x,y,z] is destructuring, when we put square brackets on the left ofthe equals sign.
+    const [x,y,z] =  arr;
+    console.log(x,y,z)
+
+    let [main, ,secondary] = restaurant.categories;
+    console.log(main,secondary)
+
+We can use destructuring to do different things, but it is entirely a preference whether we want to use it at all.
+Example: if the restaurant has a main and secondary dish, we use code like we have above on line 41 and 42.
+
+when we leave holes in the destructuring operator (we set up two commas with no identifier in the middle), 
+it will look at the 'categories' array inside 'restaurant', and assign only the first and third element inside the array to our main and secondary variables.
+
+If we did not want to use destructuring and we wanted to switch the main and secondary variables, we would use code like below:
+
+    const temp = main;
+    main = secondary;
+    secondary = temp;
+
+    console.log('swapped main and secondary dishes without destructuring: ', main, secondary);
+
+
+We require a temp variable for the above.
+to do this with destructuring, we type the below code:
+
+    [main,secondary] = [secondary, main]
+    console.log('back to normal ordering: ', main, secondary);
+
+Destructuring allows us to return multiple values from a function.
