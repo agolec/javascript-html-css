@@ -28,9 +28,9 @@ const restaurant = {
   order: function(starterIndex,mainIndex){
     return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]]
     },
-    //The below code in orderDelivery is useful for destructuring since we can perform our destructuring in the object itself.
-    orderDelivery: function(obj){
-        console.log(obj)
+    //The below code in orderDelivery is useful for destructuring since we can perform destructuring syntax in the parameter list.
+    orderDelivery: function({starterIndex,mainIndex,time,address}){
+        console.log(`Order received! ${this.starterMenu[starterIndex]}, and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
 
     }
 };
