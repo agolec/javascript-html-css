@@ -1,0 +1,14 @@
+p {
+  max-width: 800px; /* Adjust as needed */
+  width: 90%; /* Fallback for older browsers */
+  margin: 0 auto; /* Center the container */
+  border: 2px solid #000;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+  white-space: pre-wrap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
